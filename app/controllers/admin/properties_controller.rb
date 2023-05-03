@@ -4,9 +4,6 @@ class Admin::PropertiesController < ApplicationController
   expose :property
   expose :properties, -> { Property.all }
 
-  def index
-  end
-
   def create
     if property.save
       redirect_to admin_properties_path
@@ -18,14 +15,23 @@ class Admin::PropertiesController < ApplicationController
     end
   end
 
-  def show
-    @property = Property.find(params[:id])
+  def destroy
+    if property.destroy
+      flash[:success] = "Property deleted"
+    else
+      flash[
+        :error
+      ] = "Error deleting property: #{property.errors.full_messages.to_sentence}"
+    end
+
+    redirect_to admin_properties_path
   end
 
   private
 
   def property_params
     params.require(:property).permit(
+      :id,
       :property_type,
       :price_cents,
       :area,
