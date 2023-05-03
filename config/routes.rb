@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  get "/", to: "properties#index"
+  resources :properties
+
   namespace :admin do
     get "/", to: "properties#index"
 
