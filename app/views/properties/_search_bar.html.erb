@@ -2,16 +2,16 @@
   <%= simple_form_for :property_search, method: :get, url: properties_path, html: { style: "width: 100%" } do |f| %>
     <div class="row">
       <div class="col-2">
-        <%= f.input :operation, label: false, collection: Property::TYPES, prompt: "Operation" %>
+        <%= f.input :operation, label: false, collection: Property::TYPES, prompt: "Operation", selected: params.dig(:property_search, :operation) %>
       </div>
       <div class="col-2">
-        <%= f.input :min_price, label: false, placeholder: "Mim price", input_html: { type: "number" } %>
+        <%= f.input :min_price, label: false, placeholder: "Mim price", input_html: { type: "number", value: params.dig(:property_search, :min_price) } %>
       </div>
       <div class="col-2">
-        <%= f.input :max_price, label: false, placeholder: "Max price", input_html: { type: "number" } %>
+        <%= f.input :max_price, label: false, placeholder: "Max price", input_html: { type: "number", value: params.dig(:property_search, :max_price) } %>
       </div>
       <div class="col-4">
-        <%= f.input :locality, label: false, placeholder: "Locality" %>
+        <%= f.input :locality, label: false, collection: available_localities, prompt: "Locality", selected: params.dig(:property_search, :locality) %>
       </div>
       <div class="col-2">
         <%= f.button :submit, "Search", class: "btn btn-primary" %>

@@ -14,6 +14,6 @@ class PropertiesController < ApplicationController
   end
 
   def search_params
-    params.permit(:operation, :min_price, :max_price, :locality)
+    params.permit(property_search: [:operation, :min_price, :max_price, :locality])
   end
 end

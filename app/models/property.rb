@@ -23,6 +23,10 @@ class Property < ApplicationRecord
     images.first
   end
 
+  def self.available_localities
+    Property.pluck(:locality).uniq
+  end
+
   private
 
   MINIMUM_IMAGES_NUMBER = 3
