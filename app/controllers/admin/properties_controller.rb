@@ -4,6 +4,8 @@ class Admin::PropertiesController < ApplicationController
   expose :property
   expose :properties, -> { Property.all }
 
+  before_action :authenticate_user!
+
   def create
     if property.save
       redirect_to admin_properties_path
