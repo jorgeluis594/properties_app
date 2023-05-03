@@ -19,6 +19,10 @@ class Property < ApplicationRecord
   scope :between_prices, ->(min_price, max_price) { where(price_cents: min_price..max_price) }
   scope :locality, ->(locality) { where(locality: locality) }
 
+  def main_image
+    images.first
+  end
+
   private
 
   MINIMUM_IMAGES_NUMBER = 3

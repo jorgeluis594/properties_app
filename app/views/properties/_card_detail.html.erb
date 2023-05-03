@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;">
+  <a href="<%= property_path(property) %>">
+    <%= image_tag url_for(property.main_image), class: "card-img-top" %>
+  </a>
+  <div class="card-header">
+    <i class="fa-solid fa-location-dot"></i> <%= property.locality %> - <%= property.region %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= property.title %></h5>
+    <div class="row mt-4">
+      <div class="col">
+        <i class="fa-solid fa-bed"></i>
+        <span><%= property.bedrooms %></span>
+      </div>
+      <div class="col">
+        <i class="fa-solid fa-bath"></i>
+        <span> <%= property.bathrooms %></span>
+      </div>
+      <div class="col">
+        <i class="fa-solid fa-ruler"></i>
+        <span><% property.area %> mt<sup>2</sup></span>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-body-secondary">
+    Published <%= time_ago_in_words(property.created_at) %>
+  </div>
+</div>
