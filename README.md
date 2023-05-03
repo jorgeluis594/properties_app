@@ -1,24 +1,16 @@
-# README
+# Properties App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails application built as a portal for managing properties.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+- Clone this repository to your local machine.
+- Run `bundle install` to install all required gems.
+- Run `cp config/database.yml.example config/database.yml`
+- Run `rails db:create` to create the development and test databases.
+- Run `rails db:migrate` to migrate the schema to the latest version.
+- Run `rails server` to start the application.
 
-* System dependencies
+## ER diagram
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![ER diagram](ERD%20properties%20app.png)
