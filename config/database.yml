@@ -28,4 +28,3 @@ production:
   database: railwayapp_production
   username: railwayapp
   password: <%= ENV['RAILWAYAPP_DATABASE_PASSWORD'] %>
-```
