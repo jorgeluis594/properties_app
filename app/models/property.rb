@@ -15,6 +15,10 @@ class Property < ApplicationRecord
 
   validate :count_of_images
 
+  scope :operation, ->(operation) { where(property_type: operation) }
+  scope :between_prices, ->(min_price, max_price) { where(price_cents: min_price..max_price) }
+  scope :locality, ->(locality) { where(locality: locality) }
+
   private
 
   MINIMUM_IMAGES_NUMBER = 3
