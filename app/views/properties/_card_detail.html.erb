@@ -1,6 +1,9 @@
 <div class="card" style="width: 18rem;">
   <a href="<%= property_path(property) %>">
     <%= image_tag url_for(property.main_image), class: "card-img-top" %>
+    <div class="card-img-overlay">
+      <span class="fs-3 text-light"><%= property.price.format %> <%= property.price.currency %></span>
+    </div>
   </a>
   <div class="card-header">
     <i class="fa-solid fa-location-dot"></i> <%= property.locality %> - <%= property.region %>

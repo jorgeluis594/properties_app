@@ -1,7 +1,7 @@
 require_relative "../services/properties_searcher"
 
 class PropertiesController < ApplicationController
-  attr_reader :properties
+  expose :property
 
   before_action :set_properties, only: [:index]
 
