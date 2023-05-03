@@ -1,7 +1,9 @@
 class Property < ApplicationRecord
+  TYPES = %i[rent sale].freeze
+
   has_many_attached :images
 
-  enum :type, %i[rent sale]
+  enum :property_type, TYPES
 
   monetize :price_cents
 

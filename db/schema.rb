@@ -40,13 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_085715) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.integer "type", default: 0
+    t.integer "property_type", default: 0
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "CLP", null: false
     t.string "region", null: false
     t.string "locality", null: false
     t.integer "bedrooms"
     t.decimal "bathrooms", precision: 4, scale: 2
+    t.decimal "area", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
