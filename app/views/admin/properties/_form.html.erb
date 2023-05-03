@@ -1,4 +1,5 @@
 <%= simple_form_for [:admin, property] do |f| %>
+  <%= f.input :title %>
   <%= f.input :property_type, collection: Property::TYPES, prompt: "Select type" %>
   <%= f.input :price_cents, label: "Price", input_html: { min: 1 } %>
   <%= f.input :area, input_html: { min: 1 } %>
@@ -6,6 +7,7 @@
   <%= f.input :bathrooms, input_html: { min: 1 } %>
   <%= f.input :region %>
   <%= f.input :locality %>
+  <%= f.input :description, as: :text, input_html: { rows: 5 } %>
   <%= f.input :images, as: :file, input_html: { multiple: true }, hint: "Minimum 3 images" %>
   <%= f.hidden_field :user_id,  value: current_user.id %>
   <%= f.button :submit, class: "btn-primary" %>

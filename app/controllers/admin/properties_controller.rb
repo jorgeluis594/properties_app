@@ -59,6 +59,8 @@ class Admin::PropertiesController < ApplicationController
       :property_type,
       :price_cents,
       :area,
+      :title,
+      :description,
       :bedrooms,
       :bathrooms,
       :region,

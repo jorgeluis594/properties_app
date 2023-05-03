@@ -13,7 +13,7 @@ class Property < ApplicationRecord
   validates :area, numericality: { greater_than: 0 }
   validates :bedrooms, numericality: { greater_than: 0 }
   validates :bathrooms, numericality: { greater_than: 0 }
-  validates :region, :locality, :area, presence: true
+  validates :region, :locality, :area, :title, :description, presence: true
 
   validate :count_of_images
 
