@@ -1,3 +1,34 @@
+# == Schema Information
+#
+# Table name: properties
+#
+#  id             :integer          not null, primary key
+#  area           :decimal(7, 2)
+#  bathrooms      :decimal(4, 2)
+#  bedrooms       :integer
+#  description    :text
+#  locality       :string           not null
+#  price_cents    :integer          default(0), not null
+#  price_currency :string           default("CLP"), not null
+#  property_type  :integer          default("rent")
+#  region         :string           not null
+#  title          :string
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  user_id        :integer          not null
+#
+# Indexes
+#
+#  index_properties_on_locality   (locality)
+#  index_properties_on_max_price  ("max_price")
+#  index_properties_on_min_price  ("min_price")
+#  index_properties_on_operation  ("operation")
+#  index_properties_on_user_id    (user_id)
+#
+# Foreign Keys
+#
+#  user_id  (user_id => users.id)
+#
 class Property < ApplicationRecord
   TYPES = %i[rent sale].freeze
 
