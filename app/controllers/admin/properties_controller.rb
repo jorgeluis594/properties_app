@@ -2,6 +2,7 @@ class Admin::PropertiesController < ApplicationController
   layout "admin"
 
   expose :property
+  expose :properties, -> { Property.all }
 
   def index
   end

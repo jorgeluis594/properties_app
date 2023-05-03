@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Region</th>
+      <th>Locality</th>
+      <th>Type</th>
+      <th>Price</th>
+      <th>area</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% properties.each do |property| %>
+        <td><%= property.region %></td>
+        <td><%= property.locality %></td>
+        <td><%= property.property_type %></td>
+        <td><%= property.price.format %></td>
+        <td><%= property.area %> m<sup>2</sup></td>
+        <td><%= link_to 'Edit', edit_admin_property_path(property), class: 'btn btn-primary btn-sm' %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
