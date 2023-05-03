@@ -7,8 +7,10 @@ class PropertiesController < ApplicationController
 
   private
 
+  FIRST_PAGE = 1.freeze
+
   def set_properties
-    @properties = PropertiesSearcher.call(search_params)
+    @properties = PropertiesSearcher.call(search_params).paginate(page: params[:page] || FIRST_PAGE)
   end
 
   def search_params

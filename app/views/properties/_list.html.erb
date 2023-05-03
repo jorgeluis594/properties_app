@@ -1,3 +1,7 @@
 <% @properties.each do |property| %>
   <%= render "card_detail", property: property  %>
 <% end %>
+
+<div class="properties-pagination fixed-bottom">
+  <%= render_pagination(@properties.current_page, @properties.total_pages) %>
+</div>

@@ -7,4 +7,13 @@ module ApplicationHelper
       type
     end
   end
+
+  def render_pagination(current_page, pages)
+    render partial: 'partials/pagination', locals: { current_page: current_page, pages: pages }
+  end
+
+  def url_page_for(page)
+    url = request.fullpath.gsub(/[?|&|\/]page[=|\/]\d+/,'')
+    [url, "page=#{page}"].join(url['?'] ? '&' : '?')
+  end
 end

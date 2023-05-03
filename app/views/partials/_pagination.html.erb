@@ -1,0 +1,46 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <% if current_page > 1 %>
+      <li class="page-item">
+        <a class="page-link" href="<%= url_page_for(current_page - 1) %>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+    <% end %>
+    <% if pages <= 9 %>
+      <% (1..pages).each do |page| %>
+        <li class="page-item <%= current_page == page ? 'active' : '' %>"><a href="<%= url_page_for(page) %>" class="page-link"><%= page %></a></li>
+      <% end %>
+    <% else %>
+      <% (1..3).each do |page| %>
+        <li class="page-item <%= current_page == page ? 'active' : '' %>"><a href="<%= url_page_for(page) %>" class="page-link"><%= page %></a></li>
+      <% end %>
+      <% rest_pages = ((1..pages).to_a - (1..3).to_a) - (pages - 2..pages).to_a %>
+      <% intermediate_pages = rest_pages.select { |page| page >= current_page - 1 && page <= current_page + 1 } %>
+      <% if intermediate_pages.count < 3 %>
+        <% intermediate_pages.each do |page| %>
+          <li class="page-item <%= current_page == page ? 'active' : '' %>"><a href="<%= url_page_for(page) %>" class="page-link"><%= page %></a></li>
+        <% end %>
+        <li class="page-item"><p class="page-link">......</p></li>
+      <% else %>
+          <li class="page-item"><p class="page-link">...</p></li>
+          <% intermediate_pages.each do |page| %>
+            <li class="page-item <%= current_page == page ? 'active' : '' %>"><a href="<%= url_page_for(page) %>" class="page-link"><%= page %></a></li>
+          <% end %>
+          <li class="page-item"><p class="page-link">...</p></li>
+      <% end %>
+      <% (pages - 2..pages).each do |page| %>
+        <li class="page-item <%= current_page == page ? 'active' : '' %>"><a href="<%= url_page_for(page) %>" class="page-link"><%= page %></a></li>
+      <% end %>
+    <% end %>
+    <% if current_page < pages %>
+      <li class="page-item">
+        <a class="page-link" href="<%= url_page_for(current_page + 1) %>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</nav>
