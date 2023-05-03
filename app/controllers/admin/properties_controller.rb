@@ -1,8 +1,9 @@
 class Admin::PropertiesController < ApplicationController
   layout "admin"
 
+  expose :property
+
   def index
-    @properties = Property.all
   end
 
   def show
