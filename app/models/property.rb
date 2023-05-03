@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   TYPES = %i[rent sale].freeze
 
+  belongs_to :user
+
   has_many_attached :images
 
   enum :property_type, TYPES
